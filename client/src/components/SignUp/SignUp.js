@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import { signUp } from '../../services/AuthService';
 
@@ -29,7 +30,7 @@ const SignUp = () => {
 
                     <input type="submit" value="SIGN UP" className="submit" />
                 </form>
-                <p className="sign-up-text">Already have an account? <span className="login-link">Sign in</span></p>
+                <p className="sign-up-text">Already have an account? <Link to={"/sign-in"}><span className="login-link">Sign in</span></Link></p>
             </div>
         </div>
     );

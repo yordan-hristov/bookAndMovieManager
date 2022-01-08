@@ -1,0 +1,20 @@
+.nav {
+    background-color: rebeccapurple;
+
+    &-links {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+
+        &-link {
+            padding: 1.5em;
+            margin: 0 .5em;
+            text-decoration: none;
+            color: white;
+        }
+
+        &-link:hover {
+            background-color: rgb(95, 49, 141);
+        }
+    }
+}
