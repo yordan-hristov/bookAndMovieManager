@@ -1,4 +1,4 @@
-.sign-up-wrapper {
+.sign-in-wrapper {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     font-size: 3vh;
 }
 
-.sign-up {
+.sign-in {
     border: 1px solid black;
     padding: 1.5em;
 
@@ -37,10 +37,9 @@
     }
 
     &-text {
-        .login-link {
+        .register-link {
             color: rebeccapurple;
             text-decoration: underline;
         }
     }
 }
-

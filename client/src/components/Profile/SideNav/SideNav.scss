@@ -1,0 +1,47 @@
+.side-nav {
+
+    width: 20vw;
+    height: 100vh;
+    border-right: 1px solid rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5em;
+
+    &-profile-img {
+        width: 10em;
+        height: 10em;
+        border-radius: 50%;
+        align-self: center;
+        border: 1px solid rebeccapurple;
+        margin: 2em 0 1em 0;
+    }
+
+    &-user-name {
+        color: rebeccapurple;
+        text-align: center;
+    }
+
+    &-links {
+        display: flex;
+        flex-direction: column;
+        margin: 3em 2em;
+        font-size: 1.3em;
+
+        &-link {
+            text-decoration: none;
+            padding: .5em 0;
+            border-bottom: 1px solid rebeccapurple;
+            color: rebeccapurple;
+            cursor: pointer;
+        }
+
+        &-link:hover {
+            font-size: 1.4em;
+        }
+
+        .logout {
+            color: red;
+            border-bottom: 1px solid red;
+        }
+    }
+}

@@ -1,5 +1,7 @@
 .nav {
     background-color: rebeccapurple;
+    position: fixed;
+    width: 100vw;
 
     &-links {
         display: flex;
