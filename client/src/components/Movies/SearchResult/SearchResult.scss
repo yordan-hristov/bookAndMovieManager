@@ -1,0 +1,32 @@
+.search-result {
+    display: flex;
+    flex-direction: column;
+
+    &-movies {
+        padding: 2em;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;      
+        gap: 1em;  
+    }
+
+    &-buttons {
+        align-self: center;
+        display: flex;
+
+        div {
+            margin: 0 .5em 2em .5em;
+            background-color: rebeccapurple;
+            width: 8vw;
+            padding: .5em 0;
+            text-align: center;
+            color: white;
+            border-radius: 1em;
+            cursor: pointer;
+        }
+
+        .total-pages {
+            width: 3vw;
+            cursor: default;
+        }
+    }
+}

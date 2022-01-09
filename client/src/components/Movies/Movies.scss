@@ -1,0 +1,15 @@
+.movies-page {
+    display: flex;
+    flex-direction: column;
+
+    .search-link {
+        align-self: center;
+        text-align: center;
+        padding: 1em;
+        margin-top: 1em;
+        background-color: rebeccapurple;
+        color: white;
+        border-radius: 2em;
+        width: 15vw;
+    }
+}

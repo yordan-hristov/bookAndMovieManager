@@ -1,0 +1,14 @@
+.movies-row {
+    padding: 1em;
+    
+    &-title {
+        margin-bottom: .5em;
+    }
+
+    &-movies{
+        display: flex;
+        overflow-x: scroll;
+        scrollbar-width: thin;
+    }
+}
+
