@@ -5,9 +5,8 @@ import { logout } from '../../../services/AuthService';
 
 import './SideNav.scss';
 
-const SideNav = () => {
+const SideNav = ({currentUser}) => {
     const navigate = useNavigate();
-    const { currentUser } = useAuth();
 
     const handleLogoutClick = () => {
         logout()

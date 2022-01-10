@@ -11,6 +11,7 @@ import Movies from './components/Movies/Movies';
 import SearchResult from './components/Movies/SearchResult/SearchResult';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
+import ProfileMovies from './components/Profile/ProfileMovies/ProfileMovies';
 
 function App() {
   return (
@@ -24,7 +25,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />}>
+            <Route path="movies" element={<ProfileMovies />} />
+          </Route>
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/search" element={<SearchResult />} />
         </Routes>

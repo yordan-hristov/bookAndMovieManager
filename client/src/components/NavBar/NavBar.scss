@@ -1,7 +1,7 @@
 .nav {
     background-color: rebeccapurple;
-    position: fixed;
-    width: 100vw;
+    // position: fixed;
+    // width: 100vw;
 
     &-links {
         display: flex;
@@ -9,7 +9,7 @@
         list-style-type: none;
 
         &-link {
-            padding: 1.5em;
+            padding: 2.5vh;
             margin: 0 .5em;
             text-decoration: none;
             color: white;

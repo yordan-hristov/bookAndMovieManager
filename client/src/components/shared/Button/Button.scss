@@ -1,0 +1,38 @@
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5em 0;
+    border: 1px solid rebeccapurple;
+    border-radius: 2em;
+    width: 8em;
+    cursor: pointer;
+    position: relative;
+
+    &-icon {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: .5em;
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        width: 5em;
+        background-color: gray;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        font-size: .8em;
+        border-radius: 2em;
+        position: absolute;
+        bottom: 100%;
+        margin: .5em;
+        z-index: 3;
+    }
+}
+
+.custom-button:hover {
+    .tooltip-text {
+        visibility: visible;
+    }
+}

@@ -1,0 +1,9 @@
+.profile-wrapper {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+
+    &-side-content {
+        width: 80vw;
+    }
+}

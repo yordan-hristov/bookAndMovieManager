@@ -1,0 +1,27 @@
+.profile-movies {
+
+    &-title {
+        text-align: center;
+        color: rebeccapurple;
+        margin: 1em 0;
+    }
+
+    &-small-nav {
+        display: flex;
+        margin: 0 5em;
+
+        .small-nav-link {
+            margin-right: 1em;
+            padding: .5em;
+            border: 1px solid rebeccapurple;
+            color: rebeccapurple;
+            border-radius: 2em;
+            cursor: pointer;
+        }
+
+        .active-link {
+            color: white;
+            background-color: rebeccapurple;
+        }
+    }
+}

@@ -24,6 +24,7 @@
             width: 35vw;
             background-color: rgb(237, 229, 229);
             padding: 0 2em;
+            position: relative;
 
             &-close {
                 font-size: 1.3em;
@@ -46,6 +47,13 @@
                 margin: 1em 0;
             }
 
+            &-buttons {
+                position: absolute;
+                bottom: 1em;
+                display: flex;
+                gap: .5em;
+            }
         }
+
     }
 }

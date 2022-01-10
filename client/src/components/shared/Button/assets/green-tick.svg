@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+    xmlnsinkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlnsrdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnssodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlnscc="http://creativecommons.org/ns#"
+    xmlnsxlink="http://www.w3.org/1999/xlink"
+    xmlnsdc="http://purl.org/dc/elements/1.1/"
+    xmlnssvg="http://www.w3.org/2000/svg"
+    xmlnsns1="http://sozi.baierouge.fr"
+    id="svg2"
+    sodipodidocname="tick.svg"
+    inkscapeexport-filename="/datas/wiki/tick.png"
+    viewbox="0 0 48 36"
+    sodipodiversion="0.32"
+    inkscapeexport-xdpi="90.000000"
+    version="1.0"
+    inkscapeoutput_extension="org.inkscape.output.svg.inkscape"
+    inkscapeexport-ydpi="90.000000"
+    inkscapeversion="0.46"
+    sodipodidocbase="/datas/wiki"
+  >
+  <defs
+      id="defs4"
+    >
+    <linearGradient
+        id="linearGradient1341"
+        y2="47.451"
+        gradientunits="userSpaceOnUse"
+        x2="84.911"
+        y1="32.362"
+        x1="74.911"
+        inkscapecollect="always"
+      >
+      <stop
+          id="stop1366"
+          style="stop-color:#236b0d"
+          offset="0"
+      />
+      <stop
+          id="stop1368"
+          style="stop-color:#081b04"
+          offset="1"
+      />
+    </linearGradient
+    >
+    <linearGradient
+        id="linearGradient1343"
+        y2="43.714"
+        gradientunits="userSpaceOnUse"
+        x2="76.875"
+        y1="34.429"
+        x1="73.839"
+        inkscapecollect="always"
+      >
+      <stop
+          id="stop2124"
+          style="stop-color:#2edc32"
+          offset="0"
+      />
+      <stop
+          id="stop2126"
+          style="stop-color:#11661d"
+          offset="1"
+      />
+    </linearGradient
+    >
+    <linearGradient
+        id="linearGradient1345"
+        y2="47.375"
+        gradientunits="userSpaceOnUse"
+        x2="85"
+        y1="35.589"
+        x1="72.946"
+        inkscapecollect="always"
+      >
+      <stop
+          id="stop1317"
+          style="stop-color:#97ff82"
+          offset="0"
+      />
+      <stop
+          id="stop1319"
+          style="stop-color:#ceff24;stop-opacity:0"
+          offset="1"
+      />
+    </linearGradient
+    >
+  </defs
+  >
+  <sodipodiNamedview
+      id="base"
+      bordercolor="#666666"
+      inkscapegrid-points="true"
+      inkscapepageshadow="2"
+      inkscapewindow-y="-4"
+      pagecolor="#ffffff"
+      inkscapewindow-height="1003"
+      inkscapegrid-bbox="true"
+      inkscapezoom="22.416667"
+      inkscapewindow-x="-4"
+      showgrid="true"
+      borderopacity="1.0"
+      inkscapecurrent-layer="layer1"
+      inkscapecx="24"
+      inkscapecy="18"
+      inkscapewindow-width="1680"
+      inkscapepageopacity="0.0"
+      inkscapedocument-units="px"
+  />
+  <g
+      id="layer1"
+      inkscapelabel="Calque 1"
+      inkscapegroupmode="layer"
+    >
+    <g
+        id="g1330"
+        transform="matrix(1.6698 0 0 1.6698 -109.6 -45.25)"
+      >
+      <path
+          id="path1362"
+          style="fill:url(#linearGradient1341)"
+          d="m92.844 27.406c-0.135 0.026-0.263 0.079-0.375 0.156l-17.438 11.626-7.437-5.594c-0.374-0.281-0.894-0.259-1.243 0.052s-0.431 0.825-0.195 1.229l8 13c0.155 0.268 0.427 0.448 0.735 0.485 0.307 0.037 0.614-0.073 0.828-0.298l18-19c0.301-0.304 0.369-0.769 0.169-1.148s-0.623-0.584-1.044-0.508z"
+      />
+      <path
+          id="path2120"
+          style="fill:url(#linearGradient1343)"
+          transform="translate(0 -.012817)"
+          d="m92.969 27.969c-0.067 0.004-0.132 0.026-0.188 0.062l-17.781 11.844-7.75-5.813c-0.147-0.163-0.399-0.177-0.562-0.031-0.164 0.147-0.178 0.399-0.032 0.563l8 13c0.065 0.104 0.175 0.173 0.297 0.185 0.123 0.012 0.244-0.033 0.328-0.123l18-19c0.128-0.115 0.167-0.301 0.095-0.458-0.071-0.157-0.236-0.25-0.407-0.229z"
+      />
+      <path
+          id="path1323"
+          style="fill:url(#linearGradient1345)"
+          transform="translate(0 -.012817)"
+          d="m92.906 28.469l-17.906 11.937-7.906-5.937 7.937 12.875 17.875-18.875z"
+      />
+    </g
+    >
+  </g
+  >
+</svg
+>

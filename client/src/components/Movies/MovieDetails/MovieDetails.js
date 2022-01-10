@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getMovieById } from '../../../services/api/movies';
+import Button from '../../shared/Button/Button';
 
 import './MovieDetails.scss';
 
-const MovieDetails = ({ movieId,toggleDisplayDetails }) => {
+const MovieDetails = ({ movieId, toggleDisplayDetails }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState();
 
@@ -30,6 +31,12 @@ const MovieDetails = ({ movieId,toggleDisplayDetails }) => {
                         <h4 className="movie-details-info-date">{movie.release_date}</h4>
                         <p className='movie-details-info-overview'>{movie.overview}</p>
                         <p className="movie-details-info-genres">{`Genres: ${movie.genres.map(g => g.name).join(', ')}`}</p>
+                        <div className="movie-details-info-buttons">
+                            <Button svg={'redHeart'} text={'Favorite'} tooltip={'Add'} />
+                            <Button svg={'plus'} text={'Watchlist'} tooltip={'Remove'}/>
+                            <Button svg={'tick'} text={'Watched'} />
+                           
+                        </div>
                     </div>
                 </div>
                 : null}
