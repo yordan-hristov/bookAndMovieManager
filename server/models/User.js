@@ -8,6 +8,11 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    movies: {
+        watched: [String],
+        favorites: [String],
+        watchlist: [String]
     }
 });
 

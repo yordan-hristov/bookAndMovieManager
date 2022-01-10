@@ -1,13 +1,13 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter, Router } from "react-router-dom";
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useUser } from '../../contexts/UserContext';
 import NavBar from '../NavBar/NavBar';
 
 import './Home.scss';
 
 const Home = () => {
-    const { currentUser } = useAuth();
+    const { currentUser } = useUser();
 
     console.log(currentUser)
 

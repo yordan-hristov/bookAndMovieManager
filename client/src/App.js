@@ -6,7 +6,7 @@ import Home from './components/Home/Home';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar/NavBar';
 
-import { AuthProvider } from './contexts/AuthContext';
+import { UserProvider } from './contexts/UserContext';
 import Movies from './components/Movies/Movies';
 import SearchResult from './components/Movies/SearchResult/SearchResult';
 import SignIn from './components/SignIn/SignIn';
@@ -15,7 +15,7 @@ import ProfileMovies from './components/Profile/ProfileMovies/ProfileMovies';
 
 function App() {
   return (
-    <AuthProvider>
+    <UserProvider>
 
       <BrowserRouter>
 
@@ -33,7 +33,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-    </AuthProvider>
+    </UserProvider>
   );
 }
 
