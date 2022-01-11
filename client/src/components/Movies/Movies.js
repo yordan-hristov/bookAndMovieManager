@@ -34,9 +34,9 @@ const Movies = () => {
             
             <Link className='search-link' to={'/movies/search'}>Search Movies</Link>
 
-            <ItemsRow title={"Popular"} items={popularMovies} />
-            <ItemsRow title={"Top Rated"} items={topRatedMovies} />
-            <ItemsRow title={"Upcoming"} items={upcomingMovies} />
+            <ItemsRow title={"Popular"} items={popularMovies} type={'movies'}/>
+            <ItemsRow title={"Top Rated"} items={topRatedMovies} type={'movies'}/>
+            <ItemsRow title={"Upcoming"} items={upcomingMovies} type={'movies'}/>
             </>
             : null}
         </div>

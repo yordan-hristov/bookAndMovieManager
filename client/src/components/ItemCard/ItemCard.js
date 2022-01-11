@@ -3,7 +3,7 @@ import Modal from '../Modals/Modal.js';
 
 import './ItemCard.scss'
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, type }) => {
     const [displayModal, setDisplayModal] = useState(false);
 
     const toggleDisplayModal = () => {
@@ -21,7 +21,7 @@ const ItemCard = ({ item }) => {
                     <Modal 
                     itemId={item.id} 
                     closeModal={toggleDisplayModal}
-                    type={'movies'} 
+                    type={type} 
                     />
             }
         </>

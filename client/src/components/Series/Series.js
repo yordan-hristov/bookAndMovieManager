@@ -30,9 +30,9 @@ const Series = () => {
             {!isLoading ?
             <>
             <Link className='search-link' to={'/series/search'}>Search Series</Link>
-            <ItemsRow title={'Popular'} items={popularSeries} />
-            <ItemsRow title={'Top Rated'} items={topRatedSeries} />
-            <ItemsRow title={'On Air'} items={onAirSeries} />
+            <ItemsRow title={'Popular'} items={popularSeries} type={'series'}/>
+            <ItemsRow title={'Top Rated'} items={topRatedSeries} type={'series'}/>
+            <ItemsRow title={'On Air'} items={onAirSeries} type={'series'}/>
             </>
             : null}
         </div>
