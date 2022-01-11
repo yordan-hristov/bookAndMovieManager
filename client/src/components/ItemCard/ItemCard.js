@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
-import MovieDetails from '../Movies/MovieDetails/MovieDetails.js';
+import Modal from '../Modals/Modal.js';
 
 import './ItemCard.scss'
 
 const ItemCard = ({ item }) => {
-    const [displayDetails, setDisplayDetails] = useState(false);
+    const [displayModal, setDisplayModal] = useState(false);
 
-    const toggleDisplayDetails = () => {
-        setDisplayDetails(!displayDetails);
+    const toggleDisplayModal = () => {
+        setDisplayModal(!displayModal);
     }
 
     return (
         <>
-            <div className="item-card" onClick={toggleDisplayDetails}>
+            <div className="item-card" onClick={toggleDisplayModal}>
                 <img src={'http://image.tmdb.org/t/p/w500' + item.poster_path}></img>
                 <h3>{item.release_date || item.first_air_date}</h3>
             </div>
             {
-                displayDetails ?
-                    <MovieDetails movieId={item.id} toggleDisplayDetails={toggleDisplayDetails} />
-                    : null
+                displayModal &&
+                    <Modal 
+                    itemId={item.id} 
+                    closeModal={toggleDisplayModal}
+                    type={'movies'} 
+                    />
             }
         </>
     );

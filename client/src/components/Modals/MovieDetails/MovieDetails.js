@@ -6,7 +6,7 @@ import Button from '../../shared/Button/Button';
 
 import './MovieDetails.scss';
 
-const MovieDetails = ({ movieId, toggleDisplayDetails }) => {
+const MovieDetails = ({ movieId }) => {
     const { userMovies, updateMovies } = useUser();
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState();
@@ -47,13 +47,10 @@ const MovieDetails = ({ movieId, toggleDisplayDetails }) => {
     }
 
 
-    return (
-        <div className="wrapper">
-            {!isLoading ?
+    return !isLoading && (
                 <div className='movie-details'>
                     <img src={'http://image.tmdb.org/t/p/w500' + movie.poster_path}></img>
                     <div className="movie-details-info">
-                        <div className="movie-details-info-close" onClick={() => toggleDisplayDetails()} >x</div>
                         <h3 className="movie-details-info-title">{movie.original_title}</h3>
                         <h4 className="movie-details-info-date">{movie.release_date}</h4>
                         <p className='movie-details-info-overview'>{movie.overview}</p>
@@ -78,8 +75,6 @@ const MovieDetails = ({ movieId, toggleDisplayDetails }) => {
                         </div>
                     </div>
                 </div>
-                : null}
-        </div>
     );
 }
 
