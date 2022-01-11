@@ -13,6 +13,24 @@ const userSchema = new mongoose.Schema({
         watched: [String],
         favorites: [String],
         watchlist: [String]
+    },
+    series : {
+        watchlist: [String],
+        watching: [
+            {
+                id: {type: String},
+                progress: {
+                    season: {
+                        type: String,
+                        default: '1'
+                    },
+                    episode: {
+                        type: String,
+                        default: '1'
+                    }
+                }
+            }
+        ]
     }
 });
 

@@ -16,3 +16,32 @@ export const patchUserMovies = async (email,{collection, movieId}) => {
 
     await user.save();
 }
+
+export const patchUserSeries = async (email,{collection,seriesId,progress}) => {
+    const user = await User.findOne({email: email})
+
+    const seriesArr = user.series[collection];
+    if(collection == 'watching'){
+        let series = seriesArr.find(s => s.id == seriesId.toString());
+        
+        if(progress) {
+            Object.assign(series.progress, progress)
+
+        }else{
+            const index = seriesArr.indexOf(series);
+
+            index == '-1' ?
+            seriesArr.push({id: seriesId}) :
+            seriesArr.splice(index, 1);
+        }
+
+    }else{
+        const index = seriesArr.indexOf(seriesId);
+    
+        index == '-1' ? 
+        seriesArr.push(seriesId) :
+        seriesArr.splice(index,1)
+    }
+
+    await user.save();
+}

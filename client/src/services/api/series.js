@@ -5,7 +5,7 @@ const urls = {
     popular: `${moviesApiUrl}tv/popular?api_key=${moviesApiKey}&language=en-US&page=1`,
     topRated: `${moviesApiUrl}tv/top_rated?api_key=${moviesApiKey}&language=en-US&page=1`,
     onAir: `${moviesApiUrl}tv/on_the_air?api_key=${moviesApiKey}&language=en-US&page=1`,
-    byId: (id) => `${moviesApiUrl}tv/${id}?api_key=${moviesApiKey}&language=en-US&append_to_response=videos`,
+    byId: (id) => `${moviesApiUrl}tv/${id}?api_key=${moviesApiKey}&language=en-US`,
     withQuery: (query,page) => `${moviesApiUrl}search/movie?api_key=${moviesApiKey}&language=en-US&query=${query}&page=${page}`
 };
 
@@ -21,5 +21,10 @@ export const getTopRatedSeries = () => {
 
 export const getOnAirSeries = () => {
     return fetch(urls.onAir)
+        .then(res => res.json());
+}
+
+export const getSeriesById = (id) => {
+    return fetch(urls.byId(id))
         .then(res => res.json());
 }

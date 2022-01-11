@@ -1,7 +1,9 @@
 import express from 'express';
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
 import * as userService from '../services/userService.js';
+import userMovieController from './userMovieController.js';
+import userSeriesController from './userSeriesController.js';
 
 const createUser = async (req,res,next) => {
     try {
@@ -25,33 +27,10 @@ const getByEmail = async (req,res,next) => {
     }
 }
 
-const getUserMovies = async (req,res,next) => {
-    try{
-        const email = req.params.email;
-        const user = await userService.getByEmail(email);
-        
-        res.json(user.movies);
-    }catch(err){
-        console.log(err)
-    }
-}
-
-const patchUserMovies = async (req,res,next) => {
-    try{
-        const email = req.params.email;
-        const body = req.body;
-
-        await userService.patchUserMovies(email,body)
-
-        res.json({});
-    }catch(err){
-        console.log(err);
-    }
-}
-
 router.post('/', createUser);
 router.get('/:email', getByEmail);
-router.get('/:email/movies', getUserMovies);
-router.patch('/:email/movies', patchUserMovies);
+
+router.use('/:email/movies', userMovieController);
+router.use('/:email/series', userSeriesController);
 
 export default router;

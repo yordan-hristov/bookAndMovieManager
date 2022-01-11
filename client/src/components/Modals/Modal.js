@@ -2,6 +2,7 @@ import React, { useEffect} from 'react';
 
 import './Modal.scss';
 import MovieDetails from './MovieDetails/MovieDetails';
+import SeriesDetails from './SeriesDetails/SeriesDetails';
 
 const Modal = ({itemId, closeModal, type}) => {
     useEffect(() => {
@@ -17,6 +18,9 @@ const Modal = ({itemId, closeModal, type}) => {
         <div className='modal' onClick={handleCloseClick}>
             {type == 'movies' &&
                 <MovieDetails movieId={itemId} />
+            }
+            {type == 'series' &&
+                <SeriesDetails seriesId={itemId} />
             }
         </div>
     );

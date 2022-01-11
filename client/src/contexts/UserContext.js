@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { auth } from '../config/firebase';
-import { getUserByEmail, getUserMovies } from '../services/api/user';
+import { getUserByEmail, getUserMovies, getUserSeries } from '../services/api/user';
 
 const UserContext = React.createContext();
 
@@ -12,6 +12,7 @@ export function UserProvider({ children }) {
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState();
     const [userMovies, setUserMovies] = useState();
+    const [userSeries, setUserSeries] = useState();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -20,6 +21,7 @@ export function UserProvider({ children }) {
                     .then(res => {
                         setCurrentUser({ email: res.email, fullName: res.fullName });
                         setUserMovies(res.movies);
+                        setUserSeries(res.series);
                         setIsLoading(false);
                     });
             } else {
@@ -38,10 +40,19 @@ export function UserProvider({ children }) {
             })
     }
 
+    const updateSeries = () => {
+        getUserSeries(currentUser.email)
+            .then(res => {
+                setUserSeries(res);
+            })
+    }
+
     const value = {
         currentUser,
         userMovies,
-        updateMovies
+        userSeries,
+        updateMovies,
+        updateSeries
     };
 
     return (

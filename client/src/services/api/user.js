@@ -4,7 +4,9 @@ const urls = {
     createUser: `${serverUrl}/users`,
     getByEmail: (email) => `${serverUrl}/users/${email}`,
     getUserMovies: (email) => `${serverUrl}/users/${email}/movies`,
-    patchMovies: (email) => `${serverUrl}/users/${email}/movies`
+    getUserSeries: (email) => `${serverUrl}/users/${email}/series`,
+    patchMovies: (email) => `${serverUrl}/users/${email}/movies`,
+    patchSeries: (email) => `${serverUrl}/users/${email}/series`,
 }
 
 export const createUser = (fullName, email) => {
@@ -28,8 +30,24 @@ export const getUserMovies = (email) => {
         .then(res => res.json());
 }
 
-export const patchUser = (email, body) => {
+export const patchUserMovies = (email, body, progress) => {
     return fetch(urls.patchMovies(email), {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify(body)
+    }).then(res => res.json());
+}
+
+export const getUserSeries = (email) => {
+    return fetch(urls.getUserSeries(email))
+        .then(res => res.json());
+}
+
+export const patchUserSeries = (email, body) => {
+    return fetch(urls.patchSeries(email), {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
