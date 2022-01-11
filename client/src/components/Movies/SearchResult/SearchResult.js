@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { getMoviesWithQuery } from '../../../services/api/movies';
 import SearchBar from '../../shared/SearchBar/SearchBar';
-import MovieCard from '../MovieCard/MovieCard';
+import ItemCard from '../../ItemCard/ItemCard.js';
 
 import './SearchResult.scss'
 

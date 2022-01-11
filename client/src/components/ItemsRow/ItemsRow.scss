@@ -1,11 +1,11 @@
-.movies-row {
+.items-row {
     padding: 1em;
     
     &-title {
         margin-bottom: .5em;
     }
 
-    &-movies{
+    &-items{
         display: flex;
         overflow-x: scroll;
         scrollbar-width: thin;

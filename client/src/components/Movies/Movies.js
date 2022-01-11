@@ -4,7 +4,7 @@ import { getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '../../se
 import SearchBar from '../shared/SearchBar/SearchBar.js';
 
 import './Movies.scss';
-import MoviesRow from './MoviesRow/MoviesRow.js';
+import ItemsRow from '../ItemsRow/ItemsRow.js';
 
 
 const Movies = () => {
@@ -34,9 +34,9 @@ const Movies = () => {
             
             <Link className='search-link' to={'/movies/search'}>Search Movies</Link>
 
-            <MoviesRow title={"Popular"} movies={popularMovies} />
-            <MoviesRow title={"Top Rated"} movies={topRatedMovies} />
-            <MoviesRow title={"Upcoming"} movies={upcomingMovies} />
+            <ItemsRow title={"Popular"} items={popularMovies} />
+            <ItemsRow title={"Top Rated"} items={topRatedMovies} />
+            <ItemsRow title={"Upcoming"} items={upcomingMovies} />
             </>
             : null}
         </div>

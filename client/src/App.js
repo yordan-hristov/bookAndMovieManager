@@ -12,6 +12,7 @@ import SearchResult from './components/Movies/SearchResult/SearchResult';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
 import ProfileMovies from './components/Profile/ProfileMovies/ProfileMovies';
+import Series from './components/Series/Series';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/search" element={<SearchResult />} />
+          <Route path="/series" element={<Series />} />
         </Routes>
       </BrowserRouter>
 
