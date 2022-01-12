@@ -1,0 +1,11 @@
+.custom-select-book {
+    display: flex;
+
+    select {
+        border: 1px solid rebeccapurple;
+        border-radius: 2em;
+        text-align: center;
+        background-color: white;
+        width: 4em;
+    }
+}

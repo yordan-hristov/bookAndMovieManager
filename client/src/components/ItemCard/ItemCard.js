@@ -13,13 +13,18 @@ const ItemCard = ({ item, type }) => {
     return (
         <>
             <div className="item-card" onClick={toggleDisplayModal}>
-                <img src={'http://image.tmdb.org/t/p/w500' + item.poster_path}></img>
-                <h3>{item.release_date || item.first_air_date}</h3>
+                <img 
+                src={
+                    item.imgUrl ||
+                    'http://image.tmdb.org/t/p/w500' + item.poster_path 
+                }
+                ></img>
+                <h3>{item.release_date || item.first_air_date || item.year}</h3>
             </div>
             {
                 displayModal &&
                     <Modal 
-                    itemId={item.id} 
+                    itemId={item.id || item._id} 
                     closeModal={toggleDisplayModal}
                     type={type} 
                     />

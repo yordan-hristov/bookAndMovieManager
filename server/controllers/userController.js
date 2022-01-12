@@ -4,6 +4,7 @@ const router = express.Router({mergeParams: true});
 import * as userService from '../services/userService.js';
 import userMovieController from './userMovieController.js';
 import userSeriesController from './userSeriesController.js';
+import userBookController from './userBookController.js';
 
 const createUser = async (req,res,next) => {
     try {
@@ -32,5 +33,6 @@ router.get('/:email', getByEmail);
 
 router.use('/:email/movies', userMovieController);
 router.use('/:email/series', userSeriesController);
+router.use('/:email/books', userBookController);
 
 export default router;

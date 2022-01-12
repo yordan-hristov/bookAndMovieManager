@@ -1,4 +1,5 @@
 import React, { useEffect} from 'react';
+import BookDetails from './BookDetails/BookDetails';
 
 import './Modal.scss';
 import MovieDetails from './MovieDetails/MovieDetails';
@@ -11,16 +12,19 @@ const Modal = ({itemId, closeModal, type}) => {
     })
 
     const handleCloseClick = (e) => {
-        e.target.className == 'modal' && closeModal();
+        e.target.className === 'modal' && closeModal();
     }
 
     return (
         <div className='modal' onClick={handleCloseClick}>
-            {type == 'movies' &&
+            {type === 'movies' &&
                 <MovieDetails movieId={itemId} />
             }
-            {type == 'series' &&
+            {type === 'series' &&
                 <SeriesDetails seriesId={itemId} />
+            }
+            {type === 'books' &&
+                <BookDetails bookId={itemId}/>
             }
         </div>
     );

@@ -14,11 +14,11 @@ const userSchema = new mongoose.Schema({
         favorites: [String],
         watchlist: [String]
     },
-    series : {
+    series: {
         watchlist: [String],
         watching: [
             {
-                id: {type: String},
+                id: { type: String },
                 progress: {
                     season: {
                         type: String,
@@ -29,6 +29,20 @@ const userSchema = new mongoose.Schema({
                         default: '1'
                     }
                 }
+            }
+        ]
+    },
+    books: {
+        readlist: [mongoose.Types.ObjectId],
+        reading: [
+            {
+                _id: false,
+                id: { type: mongoose.Types.ObjectId },
+                chapter: {
+                    type: String,
+                    default: '1'
+                }
+
             }
         ]
     }

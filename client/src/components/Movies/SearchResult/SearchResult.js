@@ -48,7 +48,7 @@ const SearchResult = () => {
             <div className="search-result-movies">
                 {!isLoading ?
                     resultMovies.map(m => {
-                        return <MovieCard key={m.id} movie={m} />
+                        return <ItemCard key={m.id} item={m} type={"movies"}/>
                     })
                     : null}
             </div>
