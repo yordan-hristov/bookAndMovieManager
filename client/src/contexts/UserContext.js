@@ -52,7 +52,7 @@ export function UserProvider({ children }) {
     }
 
     const updateBooks = () => {
-        getUserBooks(currentUser.email)
+        getUserBooks(currentUser.email, {populated: false})
             .then(res => {
                 setUserBooks(res);
             })

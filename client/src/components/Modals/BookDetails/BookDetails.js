@@ -19,7 +19,7 @@ const BookDetails = ({ bookId }) => {
             .then(res => setBook(res))
             .finally(() => setIsLoading(false));
 
-        setReadlist(userBooks.readlist.includes(bookId.toString()));
+        setReadlist(userBooks.readlist.some(e => e.id == bookId));
         setReading(userBooks.reading.some(e => e.id == bookId));
 
         return () => {

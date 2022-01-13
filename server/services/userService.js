@@ -4,6 +4,18 @@ export const createUser = (user) => User.create(user);
 
 export const getByEmail = (email) => User.findOne({ email: email });
 
+export const getUserBooks = async (email, populated, collection) => {
+    if(populated == 'true'){
+        const user = await User.findOne({email: email})
+        .populate(`books.${collection}.book`);
+        
+        return user.books[collection];
+    }else {
+        const user = await User.findOne({email: email});
+        return user.books;
+    }
+}
+
 export const patchUserMovies = async (email, { collection, movieId }) => {
     const user = await User.findOne({ email: email })
 
@@ -48,29 +60,16 @@ export const patchUserSeries = async (email, { collection, seriesId, progress })
 
 export const patchUserBooks = async (email, { collection, bookId, chapter }) => {
     const user = await User.findOne({ email: email })
-
     const booksArr = user.books[collection];
+    const book = booksArr.find(b => b.id == bookId);
 
-    if (collection == 'reading') {
-        const book = booksArr.find(b => b.id == bookId.toString());
+    if(chapter) book.chapter = chapter;
 
-        if (chapter) {
-            book.chapter = chapter;
-        } else {
-            const index = booksArr.indexOf(book);
+    const index = booksArr.indexOf(book);
 
-            index == '-1' ?
-                booksArr.push({ id: bookId }) :
-                booksArr.splice(index, 1);
-        }
-    } else {
-        const index = booksArr.indexOf(bookId);
-
-        index == '-1' ?
-            booksArr.push(bookId) :
-            booksArr.splice(index, 1)
-    }
-
+    index == '-1' ?
+        booksArr.push({id: bookId, book: bookId}) :
+        booksArr.splice(index, 1)
 
     await user.save();
 }

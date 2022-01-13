@@ -5,7 +5,7 @@ const urls = {
     getByEmail: (email) => `${serverUrl}/users/${email}`,
     getUserMovies: (email) => `${serverUrl}/users/${email}/movies`,
     getUserSeries: (email) => `${serverUrl}/users/${email}/series`,
-    getUserBooks: (email) => `${serverUrl}/users/${email}/books`,
+    getUserBooks: (email, populated, collection) => `${serverUrl}/users/${email}/books?populated=${populated}&collection=${collection}`,
     getUserComics: (email) => `${serverUrl}/users/${email}/comics`,
     patchMovies: (email) => `${serverUrl}/users/${email}/movies`,
     patchSeries: (email) => `${serverUrl}/users/${email}/series`,
@@ -61,9 +61,14 @@ export const patchUserSeries = (email, body) => {
     }).then(res => res.json());
 }
 
-export const getUserBooks = (email) => {
-    return fetch(urls.getUserBooks(email))
-        .then(res => res.json())
+export const getUserBooks = (email, {populated}, collection) => {
+    return fetch(urls.getUserBooks(email, populated, collection))
+        .then(res => res.json());
+}
+
+export const getUserBooksPopulated = (email) => {
+    return fetch(urls.getUserBooksPopulated(email))
+        .then(res => res.json());
 }
 
 export const patchUserBooks = (email, body) => {

@@ -32,11 +32,22 @@ const userSchema = new mongoose.Schema({
         ]
     },
     books: {
-        readlist: [mongoose.Types.ObjectId],
+        readlist: [{
+            _id: false,
+            id: {type: String},
+            book: {
+                type: mongoose.Types.ObjectId,
+                ref: 'Book'
+            }
+        }],
         reading: [
             {
                 _id: false,
-                id: { type: mongoose.Types.ObjectId },
+                id: {type: String},
+                book: { 
+                    type: mongoose.Types.ObjectId,
+                    ref: 'Book'
+                },
                 chapter: {
                     type: String,
                     default: '1'
