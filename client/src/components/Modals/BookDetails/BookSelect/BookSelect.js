@@ -5,6 +5,7 @@ import './BookSelect.scss';
 
 const BookSelect = ({chapters, bookId, email, userChapter}) => {
     const [options, setOptions] = useState();
+    const [currentChapter, setCurrentChapter] = useState(userChapter);
 
     useEffect(() => {
         const optionsArr = [];
@@ -13,7 +14,6 @@ const BookSelect = ({chapters, bookId, email, userChapter}) => {
                 <option
                     key={i}
                     value={i}
-                    selected={i == userChapter}
                     >{`C${i}`}
                 </option>
             )
@@ -24,13 +24,14 @@ const BookSelect = ({chapters, bookId, email, userChapter}) => {
 
     const handleOnChange = (e) => {
         const value = e.target.value;
+        setCurrentChapter(value);
 
         patchUserBooks(email, { collection: 'reading', bookId ,chapter: value });
     }
 
     return (
-        <div className='custom-select-book' onChange={handleOnChange}>
-            <select name="chapter">
+        <div className='custom-select-book'>
+            <select name="chapter" value={currentChapter} onChange={handleOnChange}>
                 {options}
             </select>
         </div>

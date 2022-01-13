@@ -13,6 +13,7 @@ const NavBar = () => {
                <Link to={'/movies'} className='nav-links-link'>Movies</Link>
                <Link to={'/series'} className='nav-links-link'>Series</Link>
                <Link to={'/books'} className='nav-links-link'>Books</Link>
+               <Link to={'/comics'} className='nav-links-link'>Comics</Link>
            </div>
        </nav>
     ) : null

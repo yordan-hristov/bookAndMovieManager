@@ -5,6 +5,7 @@ import * as userService from '../services/userService.js';
 import userMovieController from './userMovieController.js';
 import userSeriesController from './userSeriesController.js';
 import userBookController from './userBookController.js';
+import userComicsController from './userComicsController.js';
 
 const createUser = async (req,res,next) => {
     try {
@@ -34,5 +35,6 @@ router.get('/:email', getByEmail);
 router.use('/:email/movies', userMovieController);
 router.use('/:email/series', userSeriesController);
 router.use('/:email/books', userBookController);
+router.use('/:email/comics', userComicsController);
 
 export default router;

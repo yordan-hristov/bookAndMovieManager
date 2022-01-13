@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react';
 import BookDetails from './BookDetails/BookDetails';
+import ComicsDetails from './ComicsDetails/ComicsDetails';
 
 import './Modal.scss';
 import MovieDetails from './MovieDetails/MovieDetails';
@@ -25,6 +26,9 @@ const Modal = ({itemId, closeModal, type}) => {
             }
             {type === 'books' &&
                 <BookDetails bookId={itemId}/>
+            }
+            {type === 'comics' &&
+                <ComicsDetails comicsId={itemId}/>
             }
         </div>
     );

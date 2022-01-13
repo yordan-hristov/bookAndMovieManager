@@ -15,7 +15,6 @@ const SeriesSelect = ({ seriesId, email, seasons, progress }) => {
                 <option
                     key={i}
                     value={i}
-                    selected={i == currentEpisode}
                     >{`E${i}`}
                 </option>
             );
@@ -55,17 +54,16 @@ const SeriesSelect = ({ seriesId, email, seasons, progress }) => {
 
     return (
         <div className='custom-select-series'>
-            <select name="season" onChange={handleSeasonsChange}>
+            <select name="season" value={currentSeason} onChange={handleSeasonsChange}>
                 {seasons.map((item, index) => {
                     return <option 
                     key={index} 
                     value={index + 1}
-                    selected={currentSeason == index + 1}
                     >{`S${index + 1}`}
                     </option>
                 })}
             </select>
-            <select name="episode" onChange={handleEpisodeChange}>
+            <select name="episode" value={currentEpisode} onChange={handleEpisodeChange}>
                 {secondOptions}
             </select>
         </div>

@@ -1,0 +1,38 @@
+.comics-details {
+    display: flex;
+
+    img {
+        width: 25vw;
+        height: 70vh;
+    }
+
+    &-info {
+        width: 35vw;
+        background-color: white;
+        padding: 0 2em;
+        position: relative;
+
+        &-title {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        &-year {
+            margin-top: .5em;
+            text-align: center;
+        }
+
+        &-overview {
+            text-align: justify;
+            margin: 1em 0;
+        }
+
+        &-buttons {
+            position: absolute;
+            bottom: 1em;
+            display: flex;
+            gap: .5em;
+        }
+    }
+
+}

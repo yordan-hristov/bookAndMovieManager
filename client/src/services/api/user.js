@@ -6,9 +6,11 @@ const urls = {
     getUserMovies: (email) => `${serverUrl}/users/${email}/movies`,
     getUserSeries: (email) => `${serverUrl}/users/${email}/series`,
     getUserBooks: (email) => `${serverUrl}/users/${email}/books`,
+    getUserComics: (email) => `${serverUrl}/users/${email}/comics`,
     patchMovies: (email) => `${serverUrl}/users/${email}/movies`,
     patchSeries: (email) => `${serverUrl}/users/${email}/series`,
     patchBooks: (email) => `${serverUrl}/users/${email}/books`,
+    patchComics: (email) => `${serverUrl}/users/${email}/comics`,
 }
 
 export const createUser = (fullName, email) => {
@@ -66,6 +68,22 @@ export const getUserBooks = (email) => {
 
 export const patchUserBooks = (email, body) => {
     return fetch(urls.patchBooks(email), {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify(body)
+    }).then(res => res.json());
+}
+
+export const getUserComics = (email) => {
+    return fetch(urls.getUserComics(email))
+        .then(res => res.json());
+}
+
+export const patchUserComics = (email, body) => {
+    return fetch(urls.patchComics(email), {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

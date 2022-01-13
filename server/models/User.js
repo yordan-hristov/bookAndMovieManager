@@ -45,7 +45,27 @@ const userSchema = new mongoose.Schema({
 
             }
         ]
+    },
+    comics: {
+        readlist: [mongoose.Types.ObjectId],
+        reading: [
+            {
+                _id: false,
+                id: {type: mongoose.Types.ObjectId},
+                progress: {
+                    volume: {
+                        type: String,
+                        default: '1'
+                    },
+                    issue: {
+                        type: String,
+                        default: '1'
+                    }
+                }
+            }
+        ]
     }
+
 });
 
 const User = mongoose.model('User', userSchema);
