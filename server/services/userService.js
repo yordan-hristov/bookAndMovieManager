@@ -63,13 +63,16 @@ export const patchUserBooks = async (email, { collection, bookId, chapter }) => 
     const booksArr = user.books[collection];
     const book = booksArr.find(b => b.id == bookId);
 
-    if(chapter) book.chapter = chapter;
-
-    const index = booksArr.indexOf(book);
-
-    index == '-1' ?
-        booksArr.push({id: bookId, book: bookId}) :
-        booksArr.splice(index, 1)
+    if(chapter) {
+        book.chapter = chapter;
+    }else {
+        const index = booksArr.indexOf(book);
+    
+        index == '-1' ?
+            booksArr.push({id: bookId, book: bookId}) :
+            booksArr.splice(index, 1)
+    }
+    
 
     await user.save();
 }
