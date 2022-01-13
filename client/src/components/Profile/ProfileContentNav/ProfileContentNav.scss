@@ -1,0 +1,26 @@
+.profile-content-nav {
+    display: flex;
+    margin: 0 5em;
+
+    &-link {
+        margin-right: 1em;
+        padding: .5em;
+        border: 1px solid rebeccapurple;
+        color: rebeccapurple;
+        border-radius: 2em;
+        cursor: pointer;
+    }
+
+    &-sort {
+        text-align: center;
+        border: 1px solid rebeccapurple;
+        background-color: white;
+        color: rebeccapurple;
+        border-radius: 2em;
+    }
+
+    .active-link {
+        color: white;
+        background-color: rebeccapurple;
+    }
+}
