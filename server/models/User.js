@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
     },
     movies: {
         watched: [String],
-        favorites: [String],
         watchlist: [String]
     },
     series: {

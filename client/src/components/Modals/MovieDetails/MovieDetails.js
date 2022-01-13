@@ -10,7 +10,6 @@ const MovieDetails = ({ movieId }) => {
     const { currentUser, userMovies, updateMovies } = useUser();
     const [isLoading, setIsLoading] = useState(true);
     const [movie, setMovie] = useState();
-    const [favorite, setFavorite] = useState();
     const [watched, setWatched] = useState();
     const [watchlist, setWatchlist] = useState();
 
@@ -22,7 +21,6 @@ const MovieDetails = ({ movieId }) => {
                 setIsLoading(false)
             });
 
-        setFavorite(userMovies.favorites.includes(movieId.toString()));
         setWatched(userMovies.watched.includes(movieId.toString()));
         setWatchlist(userMovies.watchlist.includes(movieId.toString()));
 
@@ -30,11 +28,6 @@ const MovieDetails = ({ movieId }) => {
             updateMovies();
         }
     }, []);
-
-    const handleFavoriteClick = () => {
-        patchUserMovies(currentUser.email , { collection: 'favorites', movieId })
-            .then(res => setFavorite(!favorite));
-    }
 
     const handleWatchedClick = () => {
         patchUserMovies(currentUser.email, { collection: 'watched', movieId })
@@ -58,11 +51,6 @@ const MovieDetails = ({ movieId }) => {
                 <p className="movie-details-info-duration">{`Duration: ${movie.runtime} minutes`}</p>
 
                 <div className="movie-details-info-buttons">
-                    {favorite ?
-                        <Button svg={'redHeart'} text={'Favorite'} tooltip={'Remove'} clickHandler={handleFavoriteClick} />
-                        :
-                        <Button svg={'whiteHeart'} text={'Favorite'} tooltip={'Add'} clickHandler={handleFavoriteClick} />
-                    }
                     {watchlist ?
                         <Button svg={'minus'} text={'Watchlist'} tooltip={'Remove'} clickHandler={handleWatchlistClick} />
                         :
