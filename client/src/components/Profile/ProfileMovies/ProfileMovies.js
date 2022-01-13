@@ -37,7 +37,7 @@ const ProfileMovies = () => {
 
     return !isLoading && (
         <div className='profile-movies-page'>
-            <h1 className='profile-movies-page-title'>PROFILE MOVIES</h1>
+            <h1 className='profile-movies-page-title'>MY MOVIES</h1>
             <ProfileContentNav
                 firstLink={{ text: 'Watchlist', active: collection == 'watchlist', clickHandler: watchlistClickHandler }}
                 secondLink={{ text: 'Watched', active: collection == 'watched', clickHandler: watchedClickHandler }}
