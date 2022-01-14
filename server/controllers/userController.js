@@ -14,7 +14,7 @@ const createUser = async (req,res,next) => {
 
         res.json(user);
     }catch(err) {
-        console.log(err);
+        res.json({message: 'Email is already used!'})
     }
 };
 

@@ -15,6 +15,10 @@ const SignIn = () => {
             .then(res => {
                 navigate('/profile');
             })
+            .catch(err => {
+                alert('Wrong email or password!');
+            })
+            
     };
 
     return (
