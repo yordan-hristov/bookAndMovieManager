@@ -9,8 +9,6 @@ import SideNav from './SideNav/SideNav';
 const Profile = () => {
     const { currentUser } = useUser();
 
-    console.log(currentUser)
-
     return (
         <div className='profile-wrapper'>
             <SideNav currentUser={currentUser} />

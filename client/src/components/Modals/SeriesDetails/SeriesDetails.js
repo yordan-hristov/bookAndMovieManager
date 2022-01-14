@@ -17,7 +17,6 @@ const SeriesDetails = ({ seriesId }) => {
     useEffect(() => {
         getSeriesById(seriesId)
             .then(res => {
-                console.log(res);
                 setSeries(res);
             })
             .finally(() => setIsLoading(false));

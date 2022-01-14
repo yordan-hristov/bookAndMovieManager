@@ -10,7 +10,6 @@ const SideNav = ({currentUser}) => {
     const handleLogoutClick = () => {
         logout()
             .then(res => {
-                console.log('LOGGED OUT');
                 navigate('/sign-in');
             })
     }
