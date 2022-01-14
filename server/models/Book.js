@@ -21,6 +21,16 @@ const bookSchema = new mongoose.Schema({
     },
     imgUrl: {
         type: String
+    },
+    rating: {
+        rating: {
+            type: String,
+            default: 0
+        },
+        ratings: [{
+            userEmail: {type: String},
+            userRating: {type: String}
+        }]
     }
 
 });

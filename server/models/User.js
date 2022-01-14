@@ -55,7 +55,12 @@ const userSchema = new mongoose.Schema({
                 }
 
             }
-        ]
+        ],
+        rated: [{
+            _id: false,
+            id: {type: String},
+            rating: {type: String}
+        }]
     },
     comics: {
         readlist: [{
@@ -85,7 +90,12 @@ const userSchema = new mongoose.Schema({
                     }
                 }
             }
-        ]
+        ],
+        rated: [{
+            _id: false,
+            id: {type: String},
+            rating: {type: String}
+        }]
     }
 
 });

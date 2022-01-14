@@ -47,9 +47,24 @@ const getBookById = async (req,res,next) => {
     }
 }
 
+const patchBookById = async (req,res,next) => {
+    try{
+        const email = req.body.email;
+        const value = req.body.value;
+        const id = req.params.id;
+
+        await bookService.patchBookById(id, email, value);
+
+        res.json({})
+    }catch(err) {
+        console.log(err)
+    }
+}
+
 router.post('/', createBook);
 router.get('/', getAllBooks);
 router.get('/search', getBooksByQuery);
 router.get('/:id', getBookById);
+router.patch('/:id', patchBookById);
 
 export default router;
