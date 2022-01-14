@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
-
-import { getMoviesWithQuery } from '../../../services/api/movies';
+import { getSeriesWithQuery } from '../../../services/api/series';
+import ItemCard from '../../ItemCard/ItemCard';
 import SearchBar from '../../shared/SearchBar/SearchBar';
-import ItemCard from '../../ItemCard/ItemCard.js';
 
-import './SearchResult.scss'
+import './SeriesSearch.scss';
 
-const SearchResult = () => {
+const SeriesSearch = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [query, setQuery] = useState('a');
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState();
-    const [resultMovies, setResultMovies] = useState([]);
+    const [resultSeries, setResultSeries] = useState([]);
 
     useEffect(() => {
-        getMoviesWithQuery(query,currentPage)
+        getSeriesWithQuery(query,currentPage)
             .then(res => {
-                setResultMovies(res.results);
+                setResultSeries(res.results);
                 setTotalPages(res.total_pages);
             })
             .finally(() => {
@@ -45,10 +44,10 @@ const SearchResult = () => {
     return (
         <div className='search-result'>
             <SearchBar setQuery={setQuery} />
-            <div className="search-result-movies">
+            <div className="search-result-series">
                 {!isLoading ?
-                    resultMovies.map(m => {
-                        return <ItemCard key={m.id} item={m} type={"movies"}/>
+                    resultSeries.map(s => {
+                        return <ItemCard key={s.id} item={s} type={"series"}/>
                     })
                     : null}
             </div>
@@ -62,4 +61,4 @@ const SearchResult = () => {
     );
 }
 
-export default SearchResult;
+export default SeriesSearch;

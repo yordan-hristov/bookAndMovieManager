@@ -7,7 +7,8 @@ const SearchBar = ({setQuery}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setQuery(inputRef.current.value);
+        const value = inputRef.current.value;
+        value.length > 2 && setQuery(inputRef.current.value);
     }
 
     return (

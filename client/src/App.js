@@ -7,7 +7,6 @@ import NavBar from './components/NavBar/NavBar';
 
 import { UserProvider } from './contexts/UserContext';
 import Movies from './components/Movies/Movies';
-import SearchResult from './components/Movies/SearchResult/SearchResult';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
 import ProfileMovies from './components/Profile/ProfileMovies/ProfileMovies';
@@ -19,6 +18,8 @@ import ProfileBooks from './components/Profile/ProfileBooks/ProfileBooks';
 import ProfileComics from './components/Profile/ProfileComics/ProfileComics';
 import { IsUser } from './guards/isUser';
 import { IsGuest } from './guards/isGuest';
+import MoviesSearch from './components/Movies/MoviesSearch/MoviesSearch';
+import SeriesSearch from './components/Series/SeriesSearch/SeriesSearch';
 
 function App() {
   return (
@@ -43,8 +44,9 @@ function App() {
               <Route path="comics" element={<ProfileComics />} />
             </Route>
             <Route path="/movies" element={<Movies />} />
-            <Route path="/movies/search" element={<SearchResult />} />
+            <Route path="/movies/search" element={<MoviesSearch />} />
             <Route path="/series" element={<Series />} />
+            <Route path="/series/search" element={<SeriesSearch />} />
             <Route path="/books" element={<Books />} />
             <Route path="/comics" element={<Comics />} />
           </Route>
