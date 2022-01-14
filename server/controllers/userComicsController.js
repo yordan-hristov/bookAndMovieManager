@@ -6,9 +6,12 @@ import * as userService from '../services/userService.js';
 const getUserComics = async (req,res,next) => {
     try{
         const email = req.params.email;
-        const user = await userService.getByEmail(email);
+        const populated = req.query.populated;
+        const collection = req.query.collection;
         
-        res.json(user.comics);
+        const comics = await userService.getUserComics(email, populated, collection);
+
+        res.json(comics);
     }catch(err){
         console.log(err)
     }

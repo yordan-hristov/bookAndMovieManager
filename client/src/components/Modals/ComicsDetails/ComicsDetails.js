@@ -19,7 +19,7 @@ const ComicsDetails = ({ comicsId }) => {
             .then(res => setComics(res))
             .finally(() => setIsLoading(false));
 
-        setReadlist(userComics.readlist.includes(comicsId));
+        setReadlist(userComics.readlist.some(e => e.id == comicsId));
         setReading(userComics.reading.some(e => e.id == comicsId));
 
         return () => {

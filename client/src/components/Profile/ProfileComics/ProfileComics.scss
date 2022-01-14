@@ -1,0 +1,16 @@
+.profile-comics-page {
+
+    &-title {
+        text-align: center;
+        color: rebeccapurple;
+        margin: 1em 0;
+    }
+
+    &-comics {
+        padding: 2em;
+        display: grid;
+        grid-template-columns: auto auto auto;      
+        gap: 1em;  
+    }
+    
+}

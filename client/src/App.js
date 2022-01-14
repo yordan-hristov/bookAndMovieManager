@@ -17,6 +17,7 @@ import Books from './components/Books/Books';
 import Comics from './components/Comics/Comics';
 import ProfileSeries from './components/Profile/ProfileSeries/ProfileSeries';
 import ProfileBooks from './components/Profile/ProfileBooks/ProfileBooks';
+import ProfileComics from './components/Profile/ProfileComics/ProfileComics';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="movies" element={<ProfileMovies />} />
             <Route path="series" element={<ProfileSeries />} />
             <Route path="books" element={<ProfileBooks />} />
+            <Route path="comics" element={<ProfileComics />} />
           </Route>
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/search" element={<SearchResult />} />

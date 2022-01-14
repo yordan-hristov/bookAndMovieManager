@@ -29,6 +29,7 @@ const SideNav = ({currentUser}) => {
                 <Link to={'/profile/movies'} className='side-nav-links-link'>My Movies</Link>
                 <Link to={'/profile/series'} className='side-nav-links-link'>My Series</Link>
                 <Link to={'/profile/books'} className='side-nav-links-link'>My Books</Link>
+                <Link to={'/profile/comics'} className='side-nav-links-link'>My Comics</Link>
                 <div className="side-nav-links-link logout" onClick={handleLogoutClick}>Logout</div>
             </div>
         </nav>

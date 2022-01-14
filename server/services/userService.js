@@ -16,6 +16,18 @@ export const getUserBooks = async (email, populated, collection) => {
     }
 }
 
+export const getUserComics = async (email, populated, collection) => {
+    if(populated == 'true'){
+        const user = await User.findOne({email: email})
+        .populate(`comics.${collection}.comics`);
+        
+        return user.comics[collection];
+    }else {
+        const user = await User.findOne({email: email});
+        return user.comics;
+    }
+}
+
 export const patchUserMovies = async (email, { collection, movieId }) => {
     const user = await User.findOne({ email: email })
 
@@ -79,26 +91,16 @@ export const patchUserBooks = async (email, { collection, bookId, chapter }) => 
 
 export const patchUserComics = async (email, { collection, comicsId, progress }) => {
     const user = await User.findOne({ email: email })
-
     const comicsArr = user.comics[collection];
-    if (collection == 'reading') {
-        let comics = comicsArr.find(s => s.id == comicsId.toString());
+    const comics = comicsArr.find(c => c.id == comicsId);
 
-        if (progress) {
-            Object.assign(comics.progress, progress)
-        } else {
-            const index = comicsArr.indexOf(comics);
-
-            index == '-1' ?
-                comicsArr.push({ id: comicsId }) :
-                comicsArr.splice(index, 1);
-        }
-
-    } else {
-        const index = comicsArr.indexOf(comicsId);
-
+    if(progress) {
+        Object.assign(comics.progress, progress);
+    }else {
+        const index = comicsArr.indexOf(comics);
+    
         index == '-1' ?
-            comicsArr.push(comicsId) :
+            comicsArr.push({id: comicsId, comics: comicsId}) :
             comicsArr.splice(index, 1)
     }
 

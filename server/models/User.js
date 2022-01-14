@@ -57,11 +57,22 @@ const userSchema = new mongoose.Schema({
         ]
     },
     comics: {
-        readlist: [mongoose.Types.ObjectId],
+        readlist: [{
+            _id: false,
+            id: {type: String},
+            comics: {
+                type: mongoose.Types.ObjectId,
+                ref: 'Comics'
+            }
+        }],
         reading: [
             {
                 _id: false,
-                id: {type: mongoose.Types.ObjectId},
+                id: {type: String},
+                comics: {
+                    type: mongoose.Types.ObjectId,
+                    ref: 'Comics'
+                },
                 progress: {
                     volume: {
                         type: String,

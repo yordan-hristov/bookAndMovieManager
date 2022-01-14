@@ -6,7 +6,7 @@ const urls = {
     getUserMovies: (email) => `${serverUrl}/users/${email}/movies`,
     getUserSeries: (email) => `${serverUrl}/users/${email}/series`,
     getUserBooks: (email, populated, collection) => `${serverUrl}/users/${email}/books?populated=${populated}&collection=${collection}`,
-    getUserComics: (email) => `${serverUrl}/users/${email}/comics`,
+    getUserComics: (email, populated, collection) => `${serverUrl}/users/${email}/comics?populated=${populated}&collection=${collection}`,
     patchMovies: (email) => `${serverUrl}/users/${email}/movies`,
     patchSeries: (email) => `${serverUrl}/users/${email}/series`,
     patchBooks: (email) => `${serverUrl}/users/${email}/books`,
@@ -66,11 +66,6 @@ export const getUserBooks = (email, {populated}, collection) => {
         .then(res => res.json());
 }
 
-export const getUserBooksPopulated = (email) => {
-    return fetch(urls.getUserBooksPopulated(email))
-        .then(res => res.json());
-}
-
 export const patchUserBooks = (email, body) => {
     return fetch(urls.patchBooks(email), {
         headers: {
@@ -82,8 +77,8 @@ export const patchUserBooks = (email, body) => {
     }).then(res => res.json());
 }
 
-export const getUserComics = (email) => {
-    return fetch(urls.getUserComics(email))
+export const getUserComics = (email, {populated}, collection) => {
+    return fetch(urls.getUserComics(email,populated,collection))
         .then(res => res.json());
 }
 

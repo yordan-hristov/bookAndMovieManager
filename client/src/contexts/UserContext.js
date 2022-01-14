@@ -59,7 +59,7 @@ export function UserProvider({ children }) {
     }
 
     const updateComics = () => {
-        getUserComics(currentUser.email)
+        getUserComics(currentUser.email, {populated: false})
             .then(res => {
                 setUserComics(res);
             })
