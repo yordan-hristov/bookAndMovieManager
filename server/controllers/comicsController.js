@@ -36,8 +36,23 @@ const getComicsById = async (req,res,next) => {
     }
 }
 
+const patchComicsById = async (req,res,next) => {
+    try{
+        const email = req.body.email;
+        const value = req.body.value;
+        const id = req.params.id;
+
+        await comicsService.patchComicsById(id, email, value);
+
+        res.json({})
+    }catch(err) {
+        console.log(err)
+    }
+}
+
 router.post('/', createComics);
 router.get('/search', getComicsByQuery);
 router.get('/:id', getComicsById);
+router.patch('/:id', patchComicsById);
 
 export default router;

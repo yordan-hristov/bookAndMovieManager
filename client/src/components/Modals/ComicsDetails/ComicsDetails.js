@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '../../../contexts/UserContext';
-import { getComicsById } from '../../../services/api/comics';
+import { getComicsById, patchComicsById } from '../../../services/api/comics';
 import { patchUserComics } from '../../../services/api/user';
 import Button from '../../shared/Button/Button';
+import Rating from '../../shared/Rating/Rating';
 
 import './ComicsDetails.scss';
 import ComicsSelect from './ComicsSelect/ComicsSelect';
@@ -13,6 +14,8 @@ const ComicsDetails = ({ comicsId }) => {
     const [comics, setComics] = useState();
     const [readlist, setReadlist] = useState();
     const [reading, setReading] = useState();
+    const [rated, setRated] = useState();
+
 
     useEffect(() => {
         getComicsById(comicsId)
@@ -21,6 +24,7 @@ const ComicsDetails = ({ comicsId }) => {
 
         setReadlist(userComics.readlist.some(e => e.id == comicsId));
         setReading(userComics.reading.some(e => e.id == comicsId));
+        setRated(userComics.rated.some(e => e.id == comicsId));
 
         return () => {
             updateComics();
@@ -37,6 +41,11 @@ const ComicsDetails = ({ comicsId }) => {
             .then(res => setReading(!reading));
     }
 
+    const handleRateComics = (value) => {
+        patchComicsById(comicsId,currentUser.email,value)
+            .then(res => setRated(!rated));
+    }
+
     return !isLoading && (
         <div className='comics-details'>
             <img src={comics.imgUrl}></img>
@@ -46,6 +55,13 @@ const ComicsDetails = ({ comicsId }) => {
                 <p className='book-details-info-overview'>{comics.overview}</p>
                 <p className="book-details-info-publisher">{`Publisher: ${comics.publisher}`}</p>
                 <p className="book-details-info-total-volumes">{`Volumes: ${comics.volumes.length}`}</p>
+                <p className="book-details-info-rating">{`Rating: ${comics.rating.rating}/5`}</p>
+
+                <Rating 
+                rated={rated} 
+                rating={userComics.rated.find(e => e.id === comicsId)?.rating || 0} 
+                handleRating={handleRateComics} 
+                />
 
                 <div className="book-details-info-buttons">
                     {readlist ?

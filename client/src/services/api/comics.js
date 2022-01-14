@@ -14,3 +14,14 @@ export const getComicsById = (id) => {
     return fetch(urls.getById(id))
         .then(res => res.json());
 }
+
+export const patchComicsById = (id,email,value) => {
+    return fetch(urls.getById(id), {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        body: JSON.stringify({ email, value })
+    }).then(res => res.json());
+}

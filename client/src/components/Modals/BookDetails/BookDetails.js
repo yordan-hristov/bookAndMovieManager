@@ -60,7 +60,7 @@ const BookDetails = ({ bookId }) => {
                 <Rating 
                 rated={rated} 
                 rating={userBooks.rated.find(e => e.id === bookId)?.rating || 0} 
-                handleRateBook={handleRateBook} 
+                handleRating={handleRateBook} 
                 />
 
                 <div className="book-details-info-buttons">

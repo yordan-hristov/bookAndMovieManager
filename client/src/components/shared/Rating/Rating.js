@@ -3,11 +3,11 @@ import { ReactComponent as StarSvg } from './assetes/star.svg'
 
 import './Rating.scss';
 
-const Rating = ({ rated,rating, handleRateBook }) => {
+const Rating = ({ rated,rating, handleRating}) => {
     const [hoveredStars, setHoveredStars] = useState(rating);
 
     const clickHandler = (value) => {
-        handleRateBook(value);
+        handleRating(value);
         setHoveredStars(value);
     }
 
