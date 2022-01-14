@@ -1,8 +1,7 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 
 import './App.css';
-import Home from './components/Home/Home';
 import SignUp from './components/SignUp/SignUp';
 import NavBar from './components/NavBar/NavBar';
 
@@ -18,6 +17,8 @@ import Comics from './components/Comics/Comics';
 import ProfileSeries from './components/Profile/ProfileSeries/ProfileSeries';
 import ProfileBooks from './components/Profile/ProfileBooks/ProfileBooks';
 import ProfileComics from './components/Profile/ProfileComics/ProfileComics';
+import { IsUser } from './guards/isUser';
+import { IsGuest } from './guards/isGuest';
 
 function App() {
   return (
@@ -28,20 +29,25 @@ function App() {
         <NavBar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/profile" element={<Profile />}>
-            <Route path="movies" element={<ProfileMovies />} />
-            <Route path="series" element={<ProfileSeries />} />
-            <Route path="books" element={<ProfileBooks />} />
-            <Route path="comics" element={<ProfileComics />} />
+          <Route element={<IsGuest />}>
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/sign-in" element={<SignIn />} />
           </Route>
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/search" element={<SearchResult />} />
-          <Route path="/series" element={<Series />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/comics" element={<Comics />} />
+
+          <Route element={<IsUser />}>
+            <Route path="/" element={<Navigate to="/profile" />}/>
+            <Route path="/profile" element={<Profile />}>
+              <Route path="movies" element={<ProfileMovies />} />
+              <Route path="series" element={<ProfileSeries />} />
+              <Route path="books" element={<ProfileBooks />} />
+              <Route path="comics" element={<ProfileComics />} />
+            </Route>
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/search" element={<SearchResult />} />
+            <Route path="/series" element={<Series />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/comics" element={<Comics />} />
+          </Route>
         </Routes>
       </BrowserRouter>
 

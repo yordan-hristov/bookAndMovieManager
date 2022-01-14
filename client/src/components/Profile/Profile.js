@@ -1,10 +1,9 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter, Outlet } from "react-router-dom";
 import { useUser } from '../../contexts/UserContext';
-import Home from '../Home/Home';
 
 import './Profile.scss';
-import ProfileMovies from './ProfileMovies/ProfileMovies';
+
 import SideNav from './SideNav/SideNav';
 
 const Profile = () => {
