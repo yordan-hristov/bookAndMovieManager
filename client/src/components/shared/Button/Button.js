@@ -9,12 +9,6 @@ import {ReactComponent as MinusIcon} from './assets/red-minus.svg';
 import './Button.scss'
 
 const Button = ({svg,text,tooltip,clickHandler}) => {
-    const [CurrentSvg, setCurrentSvg] = useState(RedHeartIcon);
-
-    useEffect(() => {
-        setCurrentSvg(svgs[svg]);
-    }, [tooltip]);
-
     const svgs = {
         redHeart: RedHeartIcon,
         whiteHeart: WhiteHeartIcon,
@@ -24,9 +18,11 @@ const Button = ({svg,text,tooltip,clickHandler}) => {
         minus: MinusIcon
     }
 
+    const Svg = svgs[svg];    
+
     return (
         <div className='custom-button' onClick={clickHandler}>
-            <CurrentSvg className="custom-button-icon" />
+            <Svg className="custom-button-icon" />
             <span>{text}</span>
             <span className="tooltip-text">{tooltip}</span>
         </div>
