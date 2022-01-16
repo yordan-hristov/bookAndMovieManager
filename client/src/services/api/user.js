@@ -1,4 +1,9 @@
-const serverUrl = 'http://localhost:5000';
+const serverUrls = {
+    development: 'http://localhost:5000',
+    production: 'https://book-and-movie-manager.herokuapp.com'
+};
+
+const serverUrl = serverUrls[process.env.NODE_ENV.trim()];
 
 const urls = {
     createUser: `${serverUrl}/users`,
