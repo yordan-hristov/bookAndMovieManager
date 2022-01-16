@@ -9,17 +9,20 @@ import './SignUp.scss';
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm({
         mode: 'all',
         resolver: yupResolver(formSchema)
     });
 
     const onSubmit = (data) => {
+        setLoading(true);
         signUp(data.fullName, data.email, data.password)
             .then(res => {
                 navigate('/profile')
             })
             .catch(err => {
+                setLoading(false);
                 alert('Email is already used')
             })
     }
@@ -59,7 +62,11 @@ const SignUp = () => {
                     />
                     {errors.repeatPassword && <p className='error-message'>{errors.repeatPassword.message}</p>}
 
-                    <input type="submit" value="SIGN UP" className="submit" />
+                    <input 
+                    type="submit" 
+                    value={`${loading ? 'Loading...' : 'SIGN UP'}`}
+                    disabled={loading}
+                    className="submit" />
                 </form>
                 <p className="sign-up-text">Already have an account? <Link to={"/sign-in"}><span className="login-link">Sign in</span></Link></p>
             </div>
