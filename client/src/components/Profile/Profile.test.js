@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import * as UserContext from '../../contexts/UserContext';
 import Profile from './Profile';
 
@@ -17,7 +18,11 @@ describe('Profile Component', () => {
     });
 
     it('Renders SideNav with current user', () => {
-        render(<Profile />);
-        expect(mockSideNav).toHaveBeenCalledWith({currentUser: {"email": "testEmail", "fullName": "test test"}});
+        render(
+            <BrowserRouter>
+                <Profile />
+            </BrowserRouter>
+        );
+        expect(mockSideNav).toHaveBeenCalledWith({ currentUser: { "email": "testEmail", "fullName": "test test" } });
     });
 });
